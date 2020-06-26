@@ -6,20 +6,20 @@
       <v-toolbar-title>DevMeetup</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat dark class="red darken-2" style="box-shadow: none;">
-          <v-icon left>mdi-account-multiple</v-icon>
-          View MeetUps
+        <v-btn flat dark class="red darken-2" style="box-shadow: none;" v-for="item in menuItems" :key="item.title">
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
     <v-navigation-drawer v-model="sideNav">
-      <v-list style="padding: 50px;">
-        <v-list-tile>
+      <v-list style="padding: 80px 40px;">
+        <v-list-tile v-for="item in menuItems" :key="item.title">
           <v-list-tile-action>
-            <v-icon left>mdi-account-multiple</v-icon>
+            <v-icon left>{{ item.icon }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>VIEW MEETUPS</v-list-tile-content>
+          <v-list-tile-content>{{ item.title }}</v-list-tile-content><br><br>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -40,7 +40,14 @@
     // },
 
     data: () => ({
-      sideNav: false
+      sideNav: false,
+      menuItems: [
+        {icon: 'mdi-library', title: 'View MeetUps'},
+        {icon: 'mdi-account-multiple', title: 'Organize MeetUps'},
+        {icon: 'mdi-account', title: 'Profile'},
+        {icon: 'mdi-face', title: 'Sign Up'},
+        {icon: 'mdi-lock-open', title: 'Sign In'}
+      ]
     }),
   };
 </script>
