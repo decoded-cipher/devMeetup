@@ -8,12 +8,17 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat dark class="red darken-2" style="box-shadow: none;" v-for="item in menuItems" :key="item.title" router :to="item.link">
+        <v-btn flat dark class="red darken-2" style="box-shadow: none;" v-for="item in menuItems" :key="item.title"
+          router :to="item.link">
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
+
+    <main>
+      <router-view></router-view>
+    </main>
 
     <v-navigation-drawer temporary v-model="sideNav">
       <v-list style="padding: 80px 40px;">
@@ -26,10 +31,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <main>
-      <router-view></router-view>
-    </main>
- 
   </v-app>
 </template>
 
