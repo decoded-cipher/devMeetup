@@ -34,12 +34,11 @@
 
 <script>
     export default {
-        data: () => ({
-            meetups: [
-                {imageURL: 'https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg', id: 'bkdf7yw687kfsbf37rwer4t8gctr64gr64', title: 'Meeting in Washington DC'},
-                {imageURL: 'https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg', id: '', title: 'Meeting in St. Petersburg'}
-            ]
-        }),
+        computed: {
+            meetups() {
+                return this.$store.getters.featuredMeetups
+            }
+        },
         methods: {
             onLoadMeetup(id) {
                 this.$router.push('/meetups/' +id)

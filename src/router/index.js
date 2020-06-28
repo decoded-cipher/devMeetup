@@ -24,6 +24,7 @@ export default new VueRouter({
         },{
             path: '/meetups/:id',
             name: 'Meetup',
+            props: true,
             component: Meetup
         },{
             path: '/meetup/new',
