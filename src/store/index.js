@@ -6,14 +6,14 @@ Vue.use(Vuex)
      state: {
          loadedMeetups: [
             {
-                imageURL: 'https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg', 
-                id: 'bkdf7yw687kfsbf37rwer4t8gctr64gr64', title: 'Meeting in Washington DC',
+                imageURL: 'https://cdn.hipwallpaper.com/i/35/22/1bJFvT.jpg', 
+                id: 'bkdf7yw687kfsbf37rwer4t8gctr64gr64', title: 'Meeting in Paris',
                 date: '2020-07-17'
             },
             {
-                imageURL: 'https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg', 
-                id: 'bkdf7yw687kvhusgdfjsv4t8gctr64gr64', title: 'Meeting in St. Petersburg',
-                date: '2020-07-19'
+                imageURL: 'https://wallpaperaccess.com/full/493923.jpg', 
+                id: 'tqyf7yw687kvhusgdfjsv4t8gctr64gpot', title: 'Meeting in Moscow',
+                date: '2022-07-19'
             }
          ],
          users: {
@@ -21,8 +21,24 @@ Vue.use(Vuex)
              registeredUsers: ['bkdf7yw687kfsbf37rwer4t8gctr64gr64']
          }
      },
-     mutations: {},
-     actions: {},
+     mutations: {
+         createMeetup(state, payload) {
+            state.loadedMeetups.push(payload)
+         }
+     },
+     actions: {
+         createMeetup({commit}, payload) {
+            const meetup = {
+                title: payload.title,
+                location: payload.location,
+                imageURL: payload.imageURL,
+                description: payload.description,
+                date: payload.date,
+                id: 'kjdfsbbdvzfmnkvnkjxzjk'
+            }
+            commit('createMeetup', meetup)
+         }
+     },
      getters: {
           loadedMeetups (state) {
               return state.loadedMeetups.sort((meetupA, meetupB) => {
