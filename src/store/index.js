@@ -33,7 +33,7 @@ Vue.use(Vuex)
             return getters.loadedMeetups.slice(0, 5)
           },
           loadedMeetup (state) {
-              return (neetupId) => {
+              return (meetupId) => {
                   return state.loadedMeetups.find((meetup) => {
                     return meetup.id === meetupId
                   })
